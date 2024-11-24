@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/5p4c351ck/InterNodal/node"
+	"github.com/5p4c351ck/DHT-InterNodal/node"
 )
 
 func main() {
