@@ -21,7 +21,11 @@ type controllerImpl struct {
 
 func (controller *controllerImpl) Receive(input string) {
 	input = strings.TrimSpace(input)
-	controller.command = input[:maxInputLength]
+	if len(input) > maxInputLength {
+		controller.command = input[:maxInputLength]
+	} else {
+		controller.command = input
+	}
 }
 
 func (controller *controllerImpl) Handle() {
