@@ -4,17 +4,23 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+
+	"github.com/5p4c351ck/InterNodal/controller"
 )
 
 func main() {
-
-	fmt.Println("---InterNodal---")
 	reader := bufio.NewReader(os.Stdin)
+	contrl, err := controller.NewController()
+	if err != nil {
+		return
+	}
 	for {
 		fmt.Printf(">> ")
-		_, err := reader.ReadString('\n')
+		input, err := reader.ReadString('\n')
 		if err != nil {
 			return
 		}
+		contrl.Receive(input)
+		contrl.Handle()
 	}
 }
