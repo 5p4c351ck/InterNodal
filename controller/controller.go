@@ -37,10 +37,11 @@ func (controller *controllerImpl) Handle() {
 		}
 		d, err := dht.NewDHT("0.0.0.0", "8080")
 		if err != nil {
+			log.Println("DHT initialization failed")
 			return
 		}
 		controller.DHT = d
-		log.Println("DHT initialized")
+		log.Println("DHT initialized successfully")
 	default:
 		log.Printf("%s is not a valid command", controller.command)
 	}
